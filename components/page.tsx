@@ -1,12 +1,14 @@
 'use client'
 import { useSession, signIn, signOut } from "next-auth/react"
+import Navbar from "./navbar"
 
 export default function Page () {
     const {data: session, status} = useSession()
     return (
              <div>
-      {status === "unauthenticated" && <div>
-          <button onClick={() => signIn()} className="rounded dark:bg-white py-3 px-5 dark:text-black">Sign In</button>
+      {status === "unauthenticated" && 
+      <div>
+          <Navbar props={"dashboard"}/>
         </div>}
       {status === 'authenticated' && 
       <div>
